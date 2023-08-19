@@ -1,0 +1,21 @@
+<script>
+
+function livro(nome, ano, autor) {
+  nome = nome.toUpperCase();
+  let anosDesdeLancamento = 2050 - ano;
+  let frase = nome + " por " + autor;
+  let objeto = {
+    nome: nome,
+    autor: autor,
+    anosDesdeLancamento: anosDesdeLancamento,
+    frase: frase
+  };
+  return objeto;
+}
+
+let meuLivro = livro("O Senhor dos Anéis", 1954, "J. R. R. Tolkien");
+console.log(meuLivro.frase);
+
+
+
+</script>

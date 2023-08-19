@@ -1,0 +1,15 @@
+import initScollSuave from "./modules/scroll-suave.js";
+import initAnimacaoScroll from "./modules/scroll-animacao.js";
+import initAccordion from "./modules/accordion.js";
+import initTabnav from "./modules/activeTab.js";
+import initModal from "./modules/modal.js"
+import initTooltip from "./modules/tooltip.js";
+import initDropdownMenu from "./modules/dropdownMenu.js";
+
+initScollSuave();
+initAnimacaoScroll();
+initAccordion();
+initTabnav();
+initModal();
+initTooltip();
+initDropdownMenu();

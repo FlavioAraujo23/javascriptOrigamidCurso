@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Exemplo de botão para adicionar</title>
+</head>
+<body>
+	<button id="add-button">Adicionar</button>
+	<div id="total">0</div>
+
+	<script>
+		// Seleciona o botão e a div
+		const addButton = document.getElementById("add-button");
+		const totalDiv = document.getElementById("total");
+
+		// Adiciona a função ao clique do botão
+		if (addButton) {
+			addButton.addEventListener("click", somar);
+		}
+
+		// Função para somar
+		function somar() {
+			let total = parseInt(totalDiv.innerText);
+			if (total < 10) {
+				total += 1;
+				totalDiv.innerText = total;
+			} else {
+				console.log("Não é possível adicionar mais.");
+			}
+		}
+	</script>
+</body>
+</html>
