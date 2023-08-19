@@ -68,6 +68,51 @@ fetch('./imagem.png')
   console.log(blobUrl);
 })
 
+// .clone()
+// Ao utilizarmos os métodos acima, text, json e blob, a resposta é modificada. Por isso existe o método clone, caso você necessite transformar uma resposta em diferentes valores.
+fetch('https://viacep.com.br/ws/01001000/json/')
+.then(response => {
+  const cloneResponse = response.clone();
+  response.json().then(json => {
+    console.log(json)
+  });  // ao clonar um response eu posso utilizar tanto o body que é o corpo da resposta tanto em formato json quanto em format text
+  cloneResponse.text().then(text => {
+    console.log(text)
+  });
+});
+
+
+// .headers()
+// É uma propriedade que possui os cabeçalhos da requisição. É um tipo de dado iterável então podemos utilizar o forEach para vermos cada um deles.
+
+fetch('https://viacep.com.br/ws/01001000/json/')
+.then(response => {
+  response.headers.forEach(console.log); // o retorno dessa iteração é o tipo de arquivo, o tipo de conteudo, o tempo que ele pode ficar em cache, quando expira esse cache e etc
+});
+
+
+// .status e .ok
+//Retorna o status da requisição. Se foi 404, 200, 202 e mais. ok retorna um valor booleano sendo true para uma requisição de sucesso e false para uma sem sucesso.
+fetch('https://viacep.com.br/ws/01001000/json/')
+.then(response => {
+  console.log(response.status, response.ok); // retorna o status daquela requisiçao, ou seja, o resultado dela
+  if(response.status === 404) { // e a partir disso é possivel retornar uma resposta ao usuario
+    console.log('Página não encontrada')
+  }
+});
+
+// .url e . type
+// .url retorna o url da requisição, .type retorna o tipo da resposta
+fetch('https://viacep.com.br/ws/01001000/json/')
+.then(response => {
+  console.log(response.type, response.url);
+});
+
+//types
+// basic: feito na mesma origem - requisição no proprio servidor
+// cors: feito em url body pode estar disponível - requisição em servidor de fora, mas permitida
+// error: erro de conexão 
+// opaque: no-cors, não permite acesso de outros sites
 
 
 
