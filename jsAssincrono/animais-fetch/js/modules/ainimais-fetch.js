@@ -2,16 +2,20 @@ import initAnimaNumeros from "./animaNumeros.js";
 
 export default function initFetchAnimais() {
   async function fetchAnimais() {
-    const animaisResponse = await fetch('http://127.0.0.1:5500/jsAssincrono/animais-fetch/js/api/animais.json');
-    const animaisJSON = await animaisResponse.json();
-    console.log(animaisJSON)
-    const numerosGrid = document.querySelector('.numeros-grid');
+    try{
+      const animaisResponse = await fetch('http://127.0.0.1:5500/jsAssincrono/animais-fetch/js/api/animais.json');
+      const animaisJSON = await animaisResponse.json();
+      console.log(animaisJSON)
+      const numerosGrid = document.querySelector('.numeros-grid');
 
-    animaisJSON.forEach(animal => {
-      const divAnimal = createAnimal(animal);
-      numerosGrid.appendChild(divAnimal);  // irá adionar no filho a div, ou seja, um atras do outro
-    });
-    initAnimaNumeros();
+      animaisJSON.forEach(animal => {
+        const divAnimal = createAnimal(animal);
+        numerosGrid.appendChild(divAnimal);  // irá adionar no filho a div, ou seja, um atras do outro
+      });
+      initAnimaNumeros();
+    }catch (erro) {
+      console.log(erro)
+    }
   }
 
   function createAnimal(animal){
