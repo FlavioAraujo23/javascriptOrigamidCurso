@@ -76,11 +76,11 @@ ativarIncrementar(); // 3
 function $$(selectedElements) {
   const elements = document.querySelectorAll(selectedElements);  // este elements está dentro do closure de cada uma das funções abaixo
 
-  function hide() { ... }
-  function show() { ... }
-  function on() { ... }
-  function addClass() { ... }
-  function removeClass() { ... }
+  // function hide() { ... }
+  // function show() { ... }
+  // function on() { ... }
+  // function addClass() { ... }
+  // function removeClass() { ... }
 
   return { hide, show, on, addClass, removeClass }
 }
