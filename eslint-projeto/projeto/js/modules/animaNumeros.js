@@ -8,24 +8,26 @@ export default function initAnimaNumeros() {
 
       let start = 0;
       const timer = setInterval(() => { 
-        start = start + incremento
+        start += incremento
         numero.innerText = start
-        if(start > total) {
+        if (start > total) {
           numero.innerText = total
           clearInterval(timer)
         }
       }, 20 * Math.random())
     })
   }
+
+  let observer;
   function handleMutation(mutation) {
-    if(mutation[0].target.classList.contains('ativo')) {
+    if (mutation[0].target.classList.contains('ativo')) {
       observer.disconnect(); // quando começar a animaçao pare de observar
       animaNumeros()
     }
 
   }
-  const observerTarget = document.querySelector('.numeros')
-  const observer = new MutationObserver(handleMutation);
+  observer = new MutationObserver(handleMutation);
 
-  observer.observe(observerTarget, {attributes: true});
+  const observerTarget = document.querySelector('.numeros')
+  observer.observe(observerTarget, { attributes: true });
 }
